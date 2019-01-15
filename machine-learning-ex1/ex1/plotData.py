@@ -13,5 +13,7 @@ def plot_data(x, y):
 
 
     # ===========================================================
-
+    plt.scatter(x, y, c='r', marker='x')
+    plt.xlabel('population')
+    plt.ylabel('revenue')
     plt.show()

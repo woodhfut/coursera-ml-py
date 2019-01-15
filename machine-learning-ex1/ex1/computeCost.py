@@ -13,4 +13,11 @@ def compute_cost(X, y, theta):
 
     # ==========================================================
 
+    # cost of linear regression 
+    # J = (X*theta-y)'*(x*theta-y)/(2*m)
+    # or J = (x*theta-y)**2/(2*m)
+
+    #cost = sum((X.dot(theta)-y)**2)/(2*m)
+    cost = (X.dot(theta)-y).transpose().dot(X.dot(theta)-y)/(2*m)
+
     return cost

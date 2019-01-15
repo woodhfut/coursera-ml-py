@@ -18,6 +18,9 @@ def gradient_descent(X, y, theta, alpha, num_iters):
         # Save the cost every iteration
         J_history[i] = compute_cost(X, y, theta)
 
+        #for gradient descent of linear regression, theta -= alpha* (X'*(X*theta - y))/m
+        theta -= alpha * (X.transpose().dot(X.dot(theta)-y))/m
+
     return theta, J_history
 
 
