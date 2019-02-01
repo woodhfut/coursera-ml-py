@@ -14,6 +14,7 @@ def plot_data(x, y):
 
     # ===========================================================
     plt.scatter(x, y, c='r', marker='x')
+    plt.pause(0.0001)
     plt.xlabel('population')
     plt.ylabel('revenue')
     plt.show()

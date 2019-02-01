@@ -13,8 +13,11 @@ X = data[:, 0]
 y = data[:, 1]
 m = y.size
 
+#https://stackoverflow.com/questions/12670101/matplotlib-ion-function-fails-to-be-interactive
+#interactive mode freezes in some python3 windows env, use this workaround.
 plt.ion()
 plt.figure(0)
+
 plot_data(X, y)
 
 input('Program paused. Press ENTER to continue')
@@ -39,6 +42,7 @@ print('Theta found by gradient descent: ' + str(theta.reshape(2)))
 # Plot the linear fit
 plt.figure(0)
 line1, = plt.plot(X[:, 1], np.dot(X, theta), label='Linear Regression')
+plt.pause(0.0001)
 plt.legend(handles=[line1])
 
 input('Program paused. Press ENTER to continue')
@@ -71,6 +75,7 @@ J_vals = np.transpose(J_vals)
 fig1 = plt.figure(1)
 ax = fig1.gca(projection='3d')
 ax.plot_surface(xs, ys, J_vals)
+plt.pause(0.0001)
 plt.xlabel(r'$\theta_0$')
 plt.ylabel(r'$\theta_1$')
 
@@ -78,5 +83,5 @@ plt.figure(2)
 lvls = np.logspace(-2, 3, 20)
 plt.contour(xs, ys, J_vals, levels=lvls, norm=LogNorm())
 plt.plot(theta[0], theta[1], c='r', marker="x")
-
+plt.pause(0.0001)
 input('ex1 Finished. Press ENTER to exit')
