@@ -60,6 +60,7 @@ theta, J_history = gradient_descent_multi(X, y, theta, alpha, num_iters)
 # Plot the convergence graph
 plt.figure()
 plt.plot(np.arange(J_history.size), J_history)
+plt.pause(0.0001)
 plt.xlabel('Number of iterations')
 plt.ylabel('Cost J')
 
@@ -71,6 +72,14 @@ print('Theta computed from gradient descent : \n{}'.format(theta))
 # Recall that the first column of X is all-ones. Thus, it does
 # not need to be normalized.
 price = 0  # You should change this
+ft = 1650
+br = 3
+
+fx = np.array([ft, br])
+fx = (fx-mu)/sigma
+fx = np.r_[1, fx]
+
+price = np.dot(fx, theta)
 
 
 # ==========================================================
@@ -110,7 +119,10 @@ print('Theta computed from the normal equations : \n{}'.format(theta))
 # Estimate the price of a 1650 sq-ft, 3 br house
 # ===================== Your Code Here =====================
 price = 0  # You should change this
+ft = 1650
+br = 3
 
+price = np.dot(np.array([1,ft,br]), theta)
 
 # ==========================================================
 

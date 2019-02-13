@@ -12,14 +12,14 @@ def gradient_descent(X, y, theta, alpha, num_iters):
         # Instructions : Perform a single gradient step on the parameter vector theta
         #
         # Hint: X.shape = (97, 2), y.shape = (97, ), theta.shape = (2, )
-
+        
+        #for gradient descent of linear regression with only one feature, theta -= alpha* (X'*(X*theta - y))/m
+        theta -= alpha * (X.T.dot(X.dot(theta)-y))/m
 
         # ===========================================================
         # Save the cost every iteration
         J_history[i] = compute_cost(X, y, theta)
 
-        #for gradient descent of linear regression, theta -= alpha* (X'*(X*theta - y))/m
-        theta -= alpha * (X.transpose().dot(X.dot(theta)-y))/m
 
     return theta, J_history
 
@@ -33,11 +33,12 @@ def gradient_descent_multi(X, y, theta, alpha, num_iters):
         # ===================== Your Code Here =====================
         # Instructions : Perform a single gradient step on the parameter vector theta
         #
-
-
+        theta -= alpha * (X.T.dot(X.dot(theta)-y))/m
         # ===========================================================
         # Save the cost every iteration
         J_history[i] = compute_cost(X, y, theta)
+
+        
 
     return theta, J_history
     

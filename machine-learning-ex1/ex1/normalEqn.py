@@ -7,6 +7,6 @@ def normal_eqn(X, y):
     # Instructions : Complete the code to compute the closed form solution
     #                to linear regression and put the result in theta
     #
-
-
+    xt =X.T
+    theta = np.linalg.pinv(xt.dot(X)).dot(xt).dot(y)
     return theta

@@ -18,6 +18,7 @@ def compute_cost(X, y, theta):
     # or J = (x*theta-y)**2/(2*m)
 
     #cost = sum((X.dot(theta)-y)**2)/(2*m)
-    cost = (X.dot(theta)-y).transpose().dot(X.dot(theta)-y)/(2*m)
-
+    #cost = (X.dot(theta)-y).transpose().dot(X.dot(theta)-y)/(2*m)
+    diff = (np.dot(X, theta)-y)
+    cost = np.dot(diff, diff.T)/(2*m)
     return cost
