@@ -16,5 +16,5 @@ def predict(theta, X):
 
 
     # ===========================================================
-
+    p = sigmoid(X.dot(theta))>= 0.5
     return p

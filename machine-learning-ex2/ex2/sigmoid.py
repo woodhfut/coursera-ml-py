@@ -9,6 +9,6 @@ def sigmoid(z):
     #                vector or scalar
     #
     # Hint : Do not import math
-
-
+    #g = np.power((1+np.exp(-z)), -1)
+    g = 1/(1+ np.exp(-z))
     return g

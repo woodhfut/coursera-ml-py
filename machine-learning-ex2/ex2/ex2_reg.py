@@ -105,5 +105,25 @@ p = predict.predict(theta, X)
 
 print('Train Accuracy: {:0.4f}'.format(np.mean(y == p) * 100))
 print('Expected accuracy (with lambda = 1): 83.1 (approx)')
+input('Program paused, press Enter to continue.')
+
+#Try differnt lamda value, and select the best one.
+#lmds = np.array([0.01, 0.03, 0.06, 0.09,0.1, 0.3, 1, 3, 10, 30])
+lmds = np.linspace(0.01, 0.1, num=100, endpoint=True)
+ps = np.zeros(lmds.shape)
+bestPredict = 0.0
+
+for i in range(lmds.size):
+    lmd = lmds[i]
+    theta, cost, *unused = opt.fmin_bfgs(f=cost_func, fprime=grad_func, x0= initial_theta, maxiter=400, full_output=True, disp=False)
+
+    #pdb.plot_decision_boundary(theta, X, y)
+
+    p = predict.predict(theta, X)
+    ps[i] = np.mean(y==p)*100
+
+index = np.argmax(ps)
+print('best lmd is {}, with accuracy {}'.format(lmds[index], ps[index]))
+
 
 input('ex2_reg Finished. Press ENTER to exit')
