@@ -21,6 +21,9 @@ def predict_one_vs_all(all_theta, X):
     #        In particular, the max function can also return the index of the
     #        max element, for more information see 'np.argmax' function.
     #
+    results = np.dot(X, all_theta.T)
+    p = np.argmax(results, axis=1)
+    p = np.array([x if x != 0 else 10 for x in p])
     
-
+    print('p {}'.format(p))
     return p
